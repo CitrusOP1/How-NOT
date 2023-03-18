@@ -5,10 +5,10 @@ public:
         if(grid[i][j]!=0){
             ans++;
             grid[i][j]=0;
-            dfs(grid,n,m,ans,i++,j);
-            dfs(grid,n,m,ans,i--,j);
-            dfs(grid,n,m,ans,i,j++);
-            dfs(grid,n,m,ans,i,j--);
+            dfs(grid,n,m,ans,i+1,j);
+            dfs(grid,n,m,ans,i-1,j);
+            dfs(grid,n,m,ans,i,j+1);
+            dfs(grid,n,m,ans,i,j-1);
         }
     }
     int maxAreaOfIsland(vector<vector<int>>& grid) {
