@@ -1,0 +1,26 @@
+class Solution {
+public:
+
+    void help(vector<vector<int>>&ans,vector<int>&st,int l,int r){
+        if(r==0) {ans.push_back(st); return;}
+        if(l==r){
+            ans.push_back(st);
+            return;
+        }
+        for(int i=l;i<=r;++i){
+            swap(st[i],st[l]);
+            help(ans,st,l+1,r);
+            swap(st[i],st[l]);
+        }
+
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        
+        vector<vector<int>>ans;
+        int l=0;
+        int r=nums.size();
+        sort(nums.begin(),nums.end());
+        help(ans,nums,l,r-1);
+        return ans;
+    }
+};
